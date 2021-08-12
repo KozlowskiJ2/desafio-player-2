@@ -1,0 +1,10 @@
+const express = require('express');
+const verificador = require('../intermediarios/verificaToken');
+const cadastro = require('../controladores/empresa/cadastraEmpresa');
+const rotasEmpresas = express();
+
+rotasEmpresas.use(verificador);
+
+rotasEmpresas.post('/cadastro',cadastro);
+
+module.exports = rotasEmpresas;
