@@ -7,9 +7,3 @@ create table usuario(
   senha text not null,
 );
 
-drop table if exists empresa cascade;
-create table empresa(
-  id serial primary key not null,
-  nome varchar(100) not null,
-  cnpj char(14) not null
-);
