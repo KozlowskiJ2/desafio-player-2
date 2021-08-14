@@ -18,6 +18,8 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.8",
+    "lowdb": "^2.1.0",
+    "mongoose": "^5.13.7",
     "mysql": "^2.18.1",
     "yup": "^0.32.9",
     "yup-locales": "^1.2.0"

@@ -1,16 +1,13 @@
-const yup = require('yup');
 const bcrypt = require('bcrypt');
 const knex = require('../../servicos/conexaoKnex');
 const jwt = require('jsonwebtoken');
 const { pt } = require('yup-locales');
 const { setLocale } = require('yup');
+const {schemaLogin:schema} = require('../../modelos/modelosYup');
 setLocale(pt);
 
 const loginUsuario = async (req, res) => {
-    const schema = yup.object().shape({
-        email: yup.string().email().required(),
-        senha: yup.string().required()
-    });
+    
 
     const { email, senha } = req.body;
     try {

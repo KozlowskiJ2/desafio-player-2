@@ -1,17 +1,12 @@
 const bcrypt = require('bcrypt');
 const knex = require('../../servicos/conexaoKnex');
-const yup = require('yup');
 const { pt } = require('yup-locales');
 const { setLocale } = require('yup');
+const {schemaCadastro:schema} = require('../../modelos/modelosYup');
 setLocale(pt);
 
 
 const cadastroUsuario = async (req, res) => {
-  const schema = yup.object().shape({
-    nome: yup.string().required(),
-    email: yup.string().email().required(),
-    senha: yup.string().required()
-  });
 
   const usuario = req.body;
 
