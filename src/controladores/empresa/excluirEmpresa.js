@@ -7,15 +7,18 @@ setLocale(pt);
 
 
 const excluiEmpresa = async () => {
+    const { cnpj } = req.body;
     try {
         await schema.validate(usuario);
-        const verificaCopia = await procuraEmpresa(cnpj);
+        const verificaEmpresa = await procuraEmpresa(cnpj);
         
-        if (!verificaCopia) {
+        if (!verificaEmpresa) {
             return res.status(400).json('O cnpj informado não possui cadastro.');
         }
-        await deletaEmpresa(cnpj)
+        await deletaEmpresa(cnpj);
     } catch (error) {
-        
+        return res.status(400).json(error.message);
     }
 }
+
+module.exports = excluiEmpresa;
